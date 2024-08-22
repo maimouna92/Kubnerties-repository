@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: apache-app
+  template:
+    metadata:
+      labels:
+        app: apache-app
+    spec:
+      containers:
+      - name: apache-container
+        image: maimouna92/docker-jenkins:latest
+        ports:
+        - containerPort: 80
+
+
